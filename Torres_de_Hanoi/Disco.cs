@@ -13,6 +13,13 @@ namespace Torres_de_Hanoi
         public int Valor { get; set; }
         public String Valor { get; set; }
         */
+        private int tam;
+
+        public int Tam
+        {
+            get { return tam; }
+            set { tam = value; }
+        }
 
     }
 }
