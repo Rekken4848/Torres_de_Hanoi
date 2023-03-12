@@ -20,7 +20,32 @@ namespace Torres_de_Hanoi
 
         public int iterativo(int n, Pila ini, Pila fin, Pila aux)
         {
-            return 0;
+            int movimientos = 0;
+            if(n%2 != 0)
+            {
+                while (fin.Elementos.Count != n)
+                {
+                    mover_disco(ini, fin);
+                    movimientos++;
+                    mover_disco(ini, aux);
+                    movimientos++;
+                    mover_disco(aux, fin);
+                    movimientos++;
+                }
+            }
+            else
+            {
+                while (fin.Elementos.Count != n)
+                {
+                    mover_disco(ini, aux);
+                    movimientos++;
+                    mover_disco(ini, fin);
+                    movimientos++;
+                    mover_disco(aux, fin);
+                    movimientos++;
+                }
+            }
+            return movimientos;
         }
 
     }
