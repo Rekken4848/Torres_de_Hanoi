@@ -21,8 +21,8 @@ namespace Torres_de_Hanoi
         public int iterativo(int n, Pila ini, Pila fin, Pila aux)
         {
             int movimientos = 0;
-            Console.WriteLine("Situación inicial.");
-            String iniText = "Torre INI: ";
+            Console.WriteLine("Situación inicial");
+            estado(ini, fin, aux);
 
             if (n%2 != 0)
             {
@@ -30,11 +30,17 @@ namespace Torres_de_Hanoi
                 {
                     mover_disco(ini, fin);
                     movimientos++;
+                    Console.WriteLine("Situación tras el movimiento " + movimientos);
+                    estado(ini, fin, aux);
                     mover_disco(ini, aux);
                     movimientos++;
+                    Console.WriteLine("Situación tras el movimiento " + movimientos);
+                    estado(ini, fin, aux);
                     mover_disco(aux, fin);
                     movimientos++;
-                    Console.WriteLine("Hola." + movimientos);
+                    Console.WriteLine("Situación tras el movimiento " + movimientos);
+                    estado(ini, fin, aux);
+                    Console.WriteLine("Impar." + movimientos);
                 }
             }
             else
@@ -43,70 +49,78 @@ namespace Torres_de_Hanoi
                 {
                     mover_disco(ini, aux);
                     movimientos++;
+                    Console.WriteLine("Situación tras el movimiento " + movimientos);
+                    estado(ini, fin, aux);
                     mover_disco(ini, fin);
                     movimientos++;
+                    Console.WriteLine("Situación tras el movimiento " + movimientos);
+                    estado(ini, fin, aux);
                     mover_disco(aux, fin);
                     movimientos++;
-                    Console.WriteLine("Adios." + movimientos);
+                    Console.WriteLine("Situación tras el movimiento " + movimientos);
+                    estado(ini, fin, aux);
+                    Console.WriteLine("Par." + movimientos);
                 }
             }
             return movimientos;
         }
 
-    }
-
-    public void Estado(Pila ini, Pila fin, Pila aux)
-    {
-        String iniText = "Torre INI: ";
-
-        if (ini.isEmpty())
+        public void estado(Pila ini, Pila fin, Pila aux)
         {
-            for(int i=0; i<ini.Elementos.Count; i++)
+            String iniText = "Torre INI: ";
+
+            if (ini.isEmpty())
             {
-                if(i == ini.Elementos.Count - 1)
+                for (int i = 0; i < ini.Elementos.Count; i++)
                 {
-                    iniText = iniText + ini.Elementos[i];
-                }
-                else
-                {
-                    iniText = iniText + ini.Elementos[i] + ", ";
+                    if (i == ini.Elementos.Count - 1)
+                    {
+                        iniText = iniText + ini.Elementos[i];
+                    }
+                    else
+                    {
+                        iniText = iniText + ini.Elementos[i] + ", ";
+                    }
                 }
             }
-        }
 
-        String auxText = "Torre AUX: ";
+            String auxText = "Torre AUX: ";
 
-        if (ini.isEmpty())
-        {
-            for (int i = 0; i < ini.Elementos.Count; i++)
+            if (aux.isEmpty())
             {
-                if (i == ini.Elementos.Count - 1)
+                for (int j = 0; j < aux.Elementos.Count; j++)
                 {
-                    iniText = iniText + ini.Elementos[i];
-                }
-                else
-                {
-                    iniText = iniText + ini.Elementos[i] + ", ";
+                    if (j == aux.Elementos.Count - 1)
+                    {
+                        auxText = auxText + aux.Elementos[j];
+                    }
+                    else
+                    {
+                        auxText = auxText + aux.Elementos[j] + ", ";
+                    }
                 }
             }
-        }
 
-        String finText = "Torre FIN: ";
+            String finText = "Torre FIN: ";
 
-        if (ini.isEmpty())
-        {
-            for (int i = 0; i < ini.Elementos.Count; i++)
+            if (fin.isEmpty())
             {
-                if (i == ini.Elementos.Count - 1)
+                for (int k = 0; k < fin.Elementos.Count; k++)
                 {
-                    iniText = iniText + ini.Elementos[i];
-                }
-                else
-                {
-                    iniText = iniText + ini.Elementos[i] + ", ";
+                    if (k == fin.Elementos.Count - 1)
+                    {
+                        finText = finText + fin.Elementos[k];
+                    }
+                    else
+                    {
+                        finText = finText + fin.Elementos[k] + ", ";
+                    }
                 }
             }
-        }
 
+            Console.WriteLine(iniText);
+            Console.WriteLine(auxText);
+            Console.WriteLine(finText);
+        }
     }
 }
