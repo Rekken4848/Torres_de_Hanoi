@@ -8,12 +8,13 @@ namespace Torres_de_Hanoi
 {
     class Pila
     {
-        private int size;
+        /*private int size;
         public int Size
         {
             get { return size; }
             set { size = value; }
-        }
+        }*/
+
         /* TODO: Elegir tipo de Top
         public int Top { get; set; }
         public String Top { get; set; }        
@@ -32,8 +33,13 @@ namespace Torres_de_Hanoi
         /* TODO: Implementar métodos */
         public Pila()
         {
-
+            this.elementos = new List<Disco>();
         }
+
+        /*public Pila(List<Disco> elementos)
+        {
+            this.Elementos = elementos;
+        }*/
 
         public void push(Disco d)
         {
@@ -56,7 +62,11 @@ namespace Torres_de_Hanoi
 
         public Disco top()
         {
-            return elementos.Last();
+            if(this.isEmpty())
+            {
+                return elementos.Last();
+            }
+            return new Disco(0);
         }
     }
 }
