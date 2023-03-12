@@ -11,7 +11,11 @@ namespace Torres_de_Hanoi
         /*TODO: Implementar métodos*/
         public void mover_disco(Pila a, Pila b)
         {
-
+            if(a.top().Tam > b.top().Tam)
+            {
+                b.push(a.top());
+                a.pop();
+            }
         }
 
         public int iterativo(int n, Pila ini, Pila fin, Pila aux)
