@@ -75,11 +75,11 @@ namespace Torres_de_Hanoi
                 {
                     if (i == ini.Elementos.Count - 1)
                     {
-                        iniText = iniText + ini.Elementos[i];
+                        iniText = iniText + ini.Elementos[i].Tam;
                     }
                     else
                     {
-                        iniText = iniText + ini.Elementos[i] + ", ";
+                        iniText = iniText + ini.Elementos[i].Tam + ", ";
                     }
                 }
             }
@@ -92,11 +92,11 @@ namespace Torres_de_Hanoi
                 {
                     if (j == aux.Elementos.Count - 1)
                     {
-                        auxText = auxText + aux.Elementos[j];
+                        auxText = auxText + aux.Elementos[j].Tam;
                     }
                     else
                     {
-                        auxText = auxText + aux.Elementos[j] + ", ";
+                        auxText = auxText + aux.Elementos[j].Tam + ", ";
                     }
                 }
             }
@@ -109,11 +109,11 @@ namespace Torres_de_Hanoi
                 {
                     if (k == fin.Elementos.Count - 1)
                     {
-                        finText = finText + fin.Elementos[k];
+                        finText = finText + fin.Elementos[k].Tam;
                     }
                     else
                     {
-                        finText = finText + fin.Elementos[k] + ", ";
+                        finText = finText + fin.Elementos[k].Tam + ", ";
                     }
                 }
             }
