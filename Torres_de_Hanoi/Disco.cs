@@ -21,5 +21,10 @@ namespace Torres_de_Hanoi
             set { tam = value; }
         }
 
+        public Disco()
+        {
+
+        }
+
     }
 }
