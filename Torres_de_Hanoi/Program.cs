@@ -10,7 +10,7 @@ namespace Torres_de_Hanoi
     {
         static void Main(string[] args)
         {
-            int movimimetos = 5;
+            int movimimetos = 4;
             Pila ini = new Pila();
             Pila aux = new Pila();
             Pila fin = new Pila();
@@ -19,7 +19,8 @@ namespace Torres_de_Hanoi
                 ini.push(new Disco(i));
             }
             Hanoi prueba = new Hanoi();
-            int resultado = prueba.iterativo(movimimetos, ini, fin, aux);
+            //int resultado = prueba.iterativo(movimimetos, ini, fin, aux);
+            int resultado = prueba.recursivo(movimimetos, ini, fin, aux);
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit." + resultado);
             Console.ReadKey();
