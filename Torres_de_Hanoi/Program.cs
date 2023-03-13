@@ -25,6 +25,7 @@ namespace Torres_de_Hanoi
             String modo = Console.ReadLine();
             Hanoi prueba = new Hanoi();
             int resultado = 0;
+
             if (modo.ToUpper() == "I")
             {
                 resultado = prueba.iterativo(movimimetos, ini, fin, aux);
