@@ -104,6 +104,7 @@ namespace Torres_de_Hanoi
         int mov = 0;
         public int recursivo(int n, Pila ini, Pila fin, Pila aux)
         {
+
             /*Console.WriteLine("Situación inicial");
             estado(ini, fin, aux);*/
 
