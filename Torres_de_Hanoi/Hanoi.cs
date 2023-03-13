@@ -42,7 +42,6 @@ namespace Torres_de_Hanoi
             int movimientos = 0;
             Console.WriteLine("Situación inicial");
             estado(ini, fin, aux);
-            bool completado = false;
 
             if (n%2 != 0)
             {
@@ -101,6 +100,32 @@ namespace Torres_de_Hanoi
                 }
             }
             return movimientos;
+        }
+
+        public int recursivo(int n, Pila ini, Pila fin, Pila aux)
+        {
+            int m = 0;
+            Console.WriteLine("Situación inicial");
+            estado(ini, fin, aux);
+
+            if (n == 1)
+            {
+                mover_disco(ini, fin);
+                m++;
+                Console.WriteLine("Situación tras el movimiento " + movimientos);
+                estado(ini, fin, aux);
+            }
+            else
+            {
+                recursivo(n - 1, ini, aux, fin);
+                mover_disco(ini, fin);
+                m++;
+                Console.WriteLine("Situación tras el movimiento " + movimientos);
+                estado(ini, fin, aux);
+                recursivo(n - 1, aux, fin, ini);
+            }
+
+            return m;
         }
 
         public void estado(Pila ini, Pila fin, Pila aux)
