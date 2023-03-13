@@ -10,7 +10,10 @@ namespace Torres_de_Hanoi
     {
         static void Main(string[] args)
         {
-            int movimimetos = 4;
+            Console.WriteLine("Bienvenido al chachijuego de Hanoi.");
+            Console.WriteLine("¿Cuántos discos chavalote?");
+            String numero = Console.ReadLine();
+            int movimimetos = Convert.ToInt32(numero);
             Pila ini = new Pila();
             Pila aux = new Pila();
             Pila fin = new Pila();
@@ -18,9 +21,19 @@ namespace Torres_de_Hanoi
             {
                 ini.push(new Disco(i));
             }
+            Console.WriteLine("¿Eres más de iterativo I o de recursivo R?");
+            String modo = Console.ReadLine();
             Hanoi prueba = new Hanoi();
-            //int resultado = prueba.iterativo(movimimetos, ini, fin, aux);
-            int resultado = prueba.recursivo(movimimetos, ini, fin, aux);
+            int resultado = 0;
+            if (modo.ToUpper() == "I")
+            {
+                resultado = prueba.iterativo(movimimetos, ini, fin, aux);
+            }
+            else if (modo.ToUpper() == "R")
+            {
+                resultado = prueba.recursivo(movimimetos, ini, fin, aux);
+            }
+            
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit." + resultado);
             Console.ReadKey();
