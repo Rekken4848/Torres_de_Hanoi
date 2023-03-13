@@ -112,7 +112,7 @@ namespace Torres_de_Hanoi
             {
                 mover_disco(ini, fin);
                 m++;
-                Console.WriteLine("Situación tras el movimiento " + movimientos);
+                Console.WriteLine("Situación tras el movimiento " + m);
                 estado(ini, fin, aux);
             }
             else
@@ -120,7 +120,7 @@ namespace Torres_de_Hanoi
                 recursivo(n - 1, ini, aux, fin);
                 mover_disco(ini, fin);
                 m++;
-                Console.WriteLine("Situación tras el movimiento " + movimientos);
+                Console.WriteLine("Situación tras el movimiento " + m);
                 estado(ini, fin, aux);
                 recursivo(n - 1, aux, fin, ini);
             }
