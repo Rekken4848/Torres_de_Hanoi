@@ -10,13 +10,13 @@ namespace Torres_de_Hanoi
     {
         static void Main(string[] args)
         {
-            int movimimetos = 3;
+            int movimimetos = 5;
             Pila ini = new Pila();
             Pila aux = new Pila();
             Pila fin = new Pila();
-            for(int i=0; i<movimimetos; i++)
+            for(int i=movimimetos; i>0; i--)
             {
-                ini.push(new Disco(i+1));
+                ini.push(new Disco(i));
             }
             Hanoi prueba = new Hanoi();
             int resultado = prueba.iterativo(movimimetos, ini, fin, aux);

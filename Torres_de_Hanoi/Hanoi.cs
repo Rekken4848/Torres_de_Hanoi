@@ -11,10 +11,29 @@ namespace Torres_de_Hanoi
         /*TODO: Implementar métodos*/
         public void mover_disco(Pila a, Pila b)
         {
-            if(a.top().Tam > b.top().Tam || a.top().Tam > 0)
+            if (a.isEmpty() && b.isEmpty())
+            {
+                Console.WriteLine("Camavinga"+ a.top().Tam+ b.top().Tam);
+                if (a.top().Tam < b.top().Tam)
+                {
+                    b.push(a.top());
+                    a.pop();
+                }
+                else if (a.top().Tam > b.top().Tam)
+                {
+                    a.push(b.top());
+                    b.pop();
+                }
+            }
+            else if (a.isEmpty() && !b.isEmpty())
             {
                 b.push(a.top());
                 a.pop();
+            }
+            else if (!a.isEmpty() && b.isEmpty())
+            {
+                a.push(b.top());
+                b.pop();
             }
         }
 
@@ -23,23 +42,33 @@ namespace Torres_de_Hanoi
             int movimientos = 0;
             Console.WriteLine("Situación inicial");
             estado(ini, fin, aux);
+            bool completado = false;
 
             if (n%2 != 0)
             {
                 while (fin.Elementos.Count != n)
                 {
-                    mover_disco(ini, fin);
-                    movimientos++;
-                    Console.WriteLine("Situación tras el movimiento " + movimientos);
-                    estado(ini, fin, aux);
-                    mover_disco(ini, aux);
-                    movimientos++;
-                    Console.WriteLine("Situación tras el movimiento " + movimientos);
-                    estado(ini, fin, aux);
-                    mover_disco(aux, fin);
-                    movimientos++;
-                    Console.WriteLine("Situación tras el movimiento " + movimientos);
-                    estado(ini, fin, aux);
+                    if (fin.Elementos.Count != n)
+                    {
+                        mover_disco(ini, fin);
+                        movimientos++;
+                        Console.WriteLine("Situación tras el movimiento " + movimientos);
+                        estado(ini, fin, aux);
+                    }
+                    if (fin.Elementos.Count != n)
+                    {
+                        mover_disco(ini, aux);
+                        movimientos++;
+                        Console.WriteLine("Situación tras el movimiento " + movimientos);
+                        estado(ini, fin, aux);
+                    }
+                    if (fin.Elementos.Count != n)
+                    {
+                        mover_disco(aux, fin);
+                        movimientos++;
+                        Console.WriteLine("Situación tras el movimiento " + movimientos);
+                        estado(ini, fin, aux);
+                    }
                     Console.WriteLine("Impar." + movimientos);
                 }
             }
@@ -47,18 +76,27 @@ namespace Torres_de_Hanoi
             {
                 while (fin.Elementos.Count != n)
                 {
-                    mover_disco(ini, aux);
-                    movimientos++;
-                    Console.WriteLine("Situación tras el movimiento " + movimientos);
-                    estado(ini, fin, aux);
-                    mover_disco(ini, fin);
-                    movimientos++;
-                    Console.WriteLine("Situación tras el movimiento " + movimientos);
-                    estado(ini, fin, aux);
-                    mover_disco(aux, fin);
-                    movimientos++;
-                    Console.WriteLine("Situación tras el movimiento " + movimientos);
-                    estado(ini, fin, aux);
+                    if (fin.Elementos.Count != n)
+                    {
+                        mover_disco(ini, aux);
+                        movimientos++;
+                        Console.WriteLine("Situación tras el movimiento " + movimientos);
+                        estado(ini, fin, aux);
+                    }
+                    if (fin.Elementos.Count != n)
+                    {
+                        mover_disco(ini, fin);
+                        movimientos++;
+                        Console.WriteLine("Situación tras el movimiento " + movimientos);
+                        estado(ini, fin, aux);
+                    }
+                    if (fin.Elementos.Count != n)
+                    {
+                        mover_disco(aux, fin);
+                        movimientos++;
+                        Console.WriteLine("Situación tras el movimiento " + movimientos);
+                        estado(ini, fin, aux);
+                    }
                     Console.WriteLine("Par." + movimientos);
                 }
             }
